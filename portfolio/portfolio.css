@@ -1,0 +1,8 @@
+.portfolio-expained {
+  width: 100%;
+  min-height: calc(100dvh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
