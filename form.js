@@ -18,7 +18,13 @@ menuBarClose.addEventListener("click", () => {
 // animation text changing js code
 document.addEventListener("DOMContentLoaded", () => {
   const options = {
-    string: ["Youtuber", "Web Developer", "Programmer", "UI UX Developer"],
+    string: [
+      "Youtuber",
+      "Web Developer",
+      "Programmer",
+      "UI UX Developer",
+      "Full Stack Developer",
+    ],
     typeSpeed: 50,
     backSpeed: 50,
     backDelay: 1000,
