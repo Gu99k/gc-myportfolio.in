@@ -2,6 +2,7 @@
 const menuBar = document.querySelector("#menubar");
 const menuItem = document.querySelector("#menu-sidebar");
 const menuBarClose = document.querySelector("#menubar-close");
+let navLinks = document.querySelector(".nav-links");
 
 menuBar.addEventListener("click", () => {
   menuItem.style.bottom = "0";
@@ -15,6 +16,24 @@ menuBarClose.addEventListener("click", () => {
   menuBarClose.style.display = "none";
 });
 
+// ============ when click hover stay on that perticular elemrnts======================================
+let listLink = document.querySelector(".list-link");
+let activeLink = listLink.querySelectorAll(".active-link");
+
+for (let i = 0; i < activeLink.length; i++) {
+  activeLink[i].addEventListener("click", () => {
+    let current = activeLink[i].classList.add("active-current");
+    if (current.length > 0) {
+      current[0].className = current[0].className.replaceAll(
+        " active-current",
+        ""
+      );
+    } else {
+      this.className += " active-current";
+    }
+  });
+}
+
 // animation text changing js code
 document.addEventListener("DOMContentLoaded", () => {
   const options = {
@@ -25,8 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
       "UI UX Developer",
       "Full Stack Developer",
     ],
-    typeSpeed: 50,
-    backSpeed: 50,
+    typeSpeed: 100,
+    backSpeed: 30,
     backDelay: 1000,
     loop: true,
   };

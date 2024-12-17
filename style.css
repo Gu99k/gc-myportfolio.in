@@ -36,6 +36,7 @@ html.sr .title1 .description {
   --lightcyan-color: lightcyan;
   --hover-color1: #00cd88;
   --hover-color2: #7ed957;
+  --hover-color3: #4dff00;
   --btn-color: green;
   --text-color: aliceblue;
 }
@@ -130,8 +131,9 @@ html.sr .title1 .description {
 .nav-links ul li {
   list-style: none;
   padding: 0.2rem 0.3rem;
+  transition: transform 0.3s ease;
 }
-.nav-links ul li a {
+.nav-links ul li .active-link {
   text-transform: capitalize;
   text-decoration: none;
   font-size: 1.2rem;
@@ -141,11 +143,20 @@ html.sr .title1 .description {
   z-index: 1;
   position: relative;
   border-radius: 5px;
-  transition: 0.3s ease;
+  transition: 0s ease;
 }
-.nav-links ul li a:hover {
-  background: var(--deep-graphite-color);
+.nav-links ul li:hover {
+  transform: scale(1.1);
 }
+.nav-links ul li .active-link:hover {
+  background: var(--blcak-color);
+  color: var(--white-color);
+}
+.active-link.activeCurrent {
+  color: var(--white-color);
+  background: var(--blcak-color);
+}
+
 .button {
   background: var(--btn-color);
   border-radius: 50px;
@@ -276,6 +287,22 @@ html.sr .title1 .description {
 }
 .section-heading .multi-text {
   color: #6dffeb;
+}
+.title2 .Typewriter__cursor {
+  color: #6dffeb;
+  animation: Typewriter_csr 1s infinite;
+  -webkit-animation: Typewriter_csr 1s infinite;
+}
+@keyframes Typewriter_csr {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 .section-heading .description {
   font-size: 1rem;
@@ -599,7 +626,7 @@ html.sr .title1 .description {
   font-size: 1.8rem;
   font-family: sans-serif;
   background: blanchedalmond;
-  border: 13px groove #fc3900;
+  border: 13px groove #8c0000;
   padding: 10px;
 }
 .port-h-s p {
@@ -687,7 +714,6 @@ html.sr .title1 .description {
 }
 .addtional_portfolio .add-port-icon {
   padding: 4px 10px;
-  display: ruby-text;
 }
 
 /* <!-- portfolio-cards-section-close//////////////////////////////////////////////////////////////////// --> */
@@ -819,13 +845,14 @@ html.sr .title1 .description {
   place-items: center;
   padding: 2rem 3rem 5rem 2rem;
   gap: 64px;
-  background: #ffe8b2;
+  background: var(--blcak-color);
   background-repeat: no-repeat;
   background-size: cover;
 }
 .blog-header {
   max-width: 70%;
   width: 100%;
+  color: var(--grey-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -860,11 +887,13 @@ html.sr .title1 .description {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  border: 1px solid wheat;
   border-radius: 10px;
   gap: 20px;
   flex: 1;
-  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.35);
-  transition: box-shadow 0.6s ease;
+  /* box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.35); */
+  box-shadow: 57px 62px 8px 21px rgba(0, 0, 0, 0.35);
+  transition: box-shadow 0.8s ease;
   overflow: hidden;
 }
 .sec-05 .blog-container .blog-cards img {
@@ -1142,6 +1171,8 @@ html.sr .title1 .description {
   transition: background-color 0.3s ease;
   padding: 4px 10px;
   border-radius: 4px;
+  border: 1px solid var(--hover-color3);
+  box-shadow: 0px 1px 13px;
 }
 .social-media2 .f-icons:hover {
   background-color: var(--hover-color2);
