@@ -4,6 +4,7 @@ const menuItem = document.querySelector("#menu-sidebar");
 const menuBarClose = document.querySelector("#menubar-close");
 let navLinks = document.querySelector(".nav-links");
 
+
 menuBar.addEventListener("click", () => {
   menuItem.style.bottom = "0";
   menuBar.style.display = "none";
@@ -177,7 +178,7 @@ sections.forEach((section) => {
 
 // ================================== scrollReveal javascript library---------------------------------------
 ScrollReveal({
-  // reset: true,
+  reset: true,
   distance: "90px",
   duration: 2500,
   delay: 400,
@@ -245,3 +246,6 @@ const bgColor = () => {
 
 bgColor();
 setInterval(bgColor, 24000);
+
+
+
