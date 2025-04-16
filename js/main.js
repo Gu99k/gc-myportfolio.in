@@ -1,9 +1,34 @@
-//  menubar
+// // Define your GitHub Pages subpath here
+
+const basePath = "/gc-myportfolio.in/";
+let homeLink = document.querySelectorAll(".home-link");
+let targetLink = document.querySelectorAll(".target-link");
+// Handle click for logo or "home" link
+
+homeLink.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = basePath;
+  });
+});
+// Handle navigation for section links
+targetLink.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const target = e.currentTarget.dataset.target;
+    if (target) {
+      window.location.href = `${basePath}#${target}`;
+    }
+  });
+});
+
+// ================================== Next js ===================================================================
+//  menubar for short device
 const menuBar = document.querySelector("#menubar");
 const menuItem = document.querySelector("#menu-sidebar");
 const menuBarClose = document.querySelector("#menubar-close");
 let navLinks = document.querySelector(".nav-links");
-
 
 menuBar.addEventListener("click", () => {
   menuItem.style.bottom = "0";
@@ -17,7 +42,9 @@ menuBarClose.addEventListener("click", () => {
   menuBarClose.style.display = "none";
 });
 
-// ============ when click hover stay on that perticular elemrnts======================================
+// ================================== Next js ===================================================================
+
+// ============ when click hover stay on that perticular elemrnts=================
 let listLink = document.querySelector(".list-link");
 let activeLink = listLink.querySelectorAll(".active-link");
 
@@ -34,6 +61,8 @@ for (let i = 0; i < activeLink.length; i++) {
     }
   });
 }
+
+// ================================== Next js ===================================================================
 
 // animation text changing js code
 document.addEventListener("DOMContentLoaded", () => {
@@ -80,7 +109,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   type();
 });
-// ===============Working contact form ===========================================
+
+// ================================== Next js ===================================================================
+
+// ===============Working contact form =====================================
 const Name = document.querySelector("#name");
 const email = document.querySelector("#email");
 const number = document.querySelector("#number");
@@ -143,6 +175,8 @@ submitForm.addEventListener("submit", (e) => {
   }
 });
 
+// ================================== Next js ===================================================================
+
 // video auto play and pause in portfolio section
 
 let cardVideo = document.querySelectorAll(".cards-img");
@@ -157,6 +191,8 @@ cardVideo.forEach(function (elem) {
     elem.childNodes[3].load();
   });
 });
+
+// ================================== Next js ===================================================================
 
 // scrolling animation All section
 
@@ -175,6 +211,8 @@ sections.forEach((section) => {
     }
   }
 });
+
+// ================================== Next js ===================================================================
 
 // ================================== scrollReveal javascript library---------------------------------------
 ScrollReveal({
@@ -206,7 +244,9 @@ ScrollReveal().reveal(".social-media2 a", {
   interval: 200,
 });
 
-// slide screen of main page-----------------------------------------------------------------------------------------------------
+// ================================== Next js ===================================================================
+
+// slide screen of main page---------------------------------------
 let screenSlide = document.querySelector(".hero");
 let screen2Slide = document.querySelector(".animate-ball");
 
@@ -246,6 +286,3 @@ const bgColor = () => {
 
 bgColor();
 setInterval(bgColor, 24000);
-
-
-
