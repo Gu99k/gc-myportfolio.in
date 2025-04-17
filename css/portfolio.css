@@ -108,6 +108,7 @@
 @media only screen and (max-width: 500px) {
   .portfolio-expained {
     flex-direction: column;
+    padding: 10px;
   }
   .portfolio-expained .block-1,
   .portfolio-expained .block-2 {
