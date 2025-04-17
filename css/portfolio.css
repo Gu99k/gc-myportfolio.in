@@ -56,15 +56,17 @@
   opacity: 0;
 }
 .btn-p-exp {
+  width: max-content;
   position: absolute;
-  right: 165px;
+  left: 50%;
+  transform: translateX(-50%);
   top: 0;
   opacity: 0;
   transition: top 1s ease, opacity 0.5s ease;
 }
 
 .btn-p-exp a {
-  font: bold 2rem 'Courier';
+  font: bold 2rem "Courier";
   color: var(--blcak-color);
   text-decoration: none;
   padding: 5px 30px;
@@ -75,4 +77,40 @@
   background-blend-mode: overlay, normal;
   box-shadow: 1px 1px 20px 0px;
   z-index: 1;
+}
+
+/*   ==============   Now start to make responsive page   =================================== */
+@media only screen and (max-width: 1092px) {
+  .portfolio-expained .block-1 {
+    width: 50%;
+  }
+  .btn-p-exp a {
+    padding: 4px 6px;
+  }
+}
+@media only screen and (max-width: 875px) {
+  .portfolio-expained {
+    gap: 1rem;
+  }
+
+  .portfolio-expained .block-1 {
+    height: auto;
+    border: 1px solid var(--btn-color);
+    padding: 3px;
+  }
+}
+@media only screen and (max-width: 775px) {
+  .btn-p-exp a {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .portfolio-expained {
+    flex-direction: column;
+  }
+  .portfolio-expained .block-1,
+  .portfolio-expained .block-2 {
+    width: 90%;
+  }
 }
