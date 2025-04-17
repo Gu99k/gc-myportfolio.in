@@ -94,7 +94,7 @@
   }
 
   .portfolio-expained .block-1 {
-    height: auto;
+    height: fit-content;
     border: 1px solid var(--btn-color);
     padding: 3px;
   }
