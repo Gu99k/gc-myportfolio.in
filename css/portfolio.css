@@ -1,11 +1,11 @@
 .portfolio-expained {
-  width: 100%;
-  min-height: calc(100dvh - 80px);
+  padding: 2.5rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid black;
   gap: 2rem;
+  overflow: hidden;
 }
 
 .portfolio-expained .block-1 {
@@ -108,7 +108,6 @@
 @media only screen and (max-width: 500px) {
   .portfolio-expained {
     flex-direction: column;
-    padding: 10px;
   }
   .portfolio-expained .block-1,
   .portfolio-expained .block-2 {
