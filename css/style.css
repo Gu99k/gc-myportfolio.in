@@ -206,9 +206,9 @@ html.sr .title1 .description {
 }
 /* Scroll lock: prevent background from scrolling */
 
-/* body[data-scroll-locked="1"] {
+body[data-scroll-locked="1"] {
   overflow: hidden;
-} */
+}
 
 .menu-item {
   position: fixed;
