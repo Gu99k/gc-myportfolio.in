@@ -3,11 +3,6 @@
 const basePath = "/gc-myportfolio.in/";
 let homeLink = document.querySelectorAll(".home-link");
 let targetLink = document.querySelectorAll(".target-link");
-//  menubar for short device
-const menuBar = document.querySelector("#menubar");
-const menuItem = document.querySelector(".menu-item");
-const menuBarClose = document.querySelector("#menubar-close");
-const dataDrop = document.querySelector("#backdrop");
 // Handle click for logo or "home" link
 
 homeLink.forEach((link) => {
@@ -17,54 +12,24 @@ homeLink.forEach((link) => {
   });
 });
 // Handle navigation for section links
-// targetLink.forEach((link) => {
-//   link.addEventListener("click", (e) => {
-//     e.preventDefault();
-
-//     const target = e.currentTarget.dataset.target;
-//     if (target) {
-//       window.location.href = `${basePath}#${target}`;
-//     }
-//   });
-// });
-// Detect if we are on index.html
-const isIndex =
-  window.location.pathname === `${basePath}` ||
-  window.location.pathname === `${basePath}index.html`;
-
 targetLink.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
+
     const target = e.currentTarget.dataset.target;
-
-    if (!target) return;
-
-    if (isIndex) {
-      // Already on home page — smooth scroll + close menu
-      const targetSection = document.getElementById(target);
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: "smooth" });
-
-        // Close the menu
-        menuItem.style.right = "-100%";
-        menuBar.style.display = "inline-block";
-        menuBarClose.style.display = "none";
-        dataDrop.style.display = "none";
-        document.body.removeAttribute("data-scroll-locked");
-      }
-    } else {
-      // Not on home page — navigate to home with hash
+    if (target) {
       window.location.href = `${basePath}#${target}`;
+      location.assign(location.href);
     }
   });
 });
 
 // ================================== Next js ===================================================================
 //  menubar for short device
-// const menuBar = document.querySelector("#menubar");
-// const menuItem = document.querySelector(".menu-item");
-// const menuBarClose = document.querySelector("#menubar-close");
-// const dataDrop = document.querySelector("#backdrop");
+const menuBar = document.querySelector("#menubar");
+const menuItem = document.querySelector(".menu-item");
+const menuBarClose = document.querySelector("#menubar-close");
+const dataDrop = document.querySelector("#backdrop");
 
 menuBar.addEventListener("click", () => {
   menuItem.style.right = "0";
