@@ -19,7 +19,6 @@ targetLink.forEach((link) => {
     const target = e.currentTarget.dataset.target;
     if (target) {
       window.location.href = `${basePath}#${target}`;
-      location.assign(location.href);
     }
   });
 });
