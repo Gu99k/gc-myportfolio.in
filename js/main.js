@@ -28,20 +28,19 @@ targetLink.forEach((link) => {
 const menuBar = document.querySelector("#menubar");
 const menuItem = document.querySelector(".menu-item");
 const menuBarClose = document.querySelector("#menubar-close");
-let navLinks = document.querySelector(".nav-links");
 const dataDrop = document.querySelector("#backdrop");
 
 menuBar.addEventListener("click", () => {
   menuItem.style.right = "0";
   menuBar.style.display = "none";
-  menuBarClose.style.display = "block";
+  menuBarClose.style.display = "inline-block";
   dataDrop.style.display = "block";
   document.body.setAttribute("data-scroll-locked", "1");
 });
 
 menuBarClose.addEventListener("click", () => {
   menuItem.style.right = "-100%";
-  menuBar.style.display = "block";
+  menuBar.style.display = "inline-block";
   menuBarClose.style.display = "none";
   dataDrop.style.display = "none";
   document.body.removeAttribute("data-scroll-locked");

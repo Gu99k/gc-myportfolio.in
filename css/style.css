@@ -179,14 +179,14 @@ html.sr .title1 .description {
   transform: scale(1.1);
 }
 
-.navbar #menubar {
+#menubar {
   font-size: 1.5rem;
   z-index: 1;
   padding: 5px;
   cursor: pointer;
   display: none;
 }
-.navbar #menubar-close {
+#menubar-close {
   display: none;
   padding: 5px;
   font-size: 1.5rem;
@@ -1240,6 +1240,9 @@ body[data-scroll-locked="1"] {
 
 /* <!-- footer-section-close////////////////////////////////////////////////////////////////////////////// --> */
 
+
+
+/*  ----        making responsive page ---------------------------------------------------------------------- */
 @media only screen and (max-width: 1180px) {
   .container {
     padding: 0 50px;
@@ -1300,8 +1303,8 @@ body[data-scroll-locked="1"] {
   .nav-links {
     display: none;
   }
-  .navbar #menubar {
-    display: block;
+  #menubar {
+    display: inline-block;
   }
 
   .image {
