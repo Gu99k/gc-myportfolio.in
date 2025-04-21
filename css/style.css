@@ -193,21 +193,35 @@ html.sr .title1 .description {
   cursor: pointer;
   z-index: 1;
 }
-#menu-sidebar {
-  position: relative;
-  max-width: 85px;
+/* Optional: Backdrop */
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
   width: 100%;
-  bottom: 485px;
-  transition: bottom 850ms ease;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  display: none;
 }
-#menu-sidebar .menu-item {
-  max-width: 250px;
-  width: 100%;
+/* Scroll lock: prevent background from scrolling */
+
+body[data-scroll-locked="1"] {
+  overflow: hidden;
+}
+
+.menu-item {
+  position: fixed;
+  top: 80px;
+  right: -100%;
+  max-width: 350px;
+  width: 75%;
+  height: 100%;
   border-radius: 5px;
   transition: height 4s ease;
   background-color: white;
-  position: fixed;
-  z-index: 2;
+  z-index: 1000;
+  transition: right 0.5s ease-in-out;
 }
 .menu-item ul li {
   list-style: none;
@@ -1288,9 +1302,6 @@ html.sr .title1 .description {
   }
   .navbar #menubar {
     display: block;
-  }
-  .menu-item {
-    z-index: 1;
   }
 
   .image {
