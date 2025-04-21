@@ -35,7 +35,7 @@ menuBar.addEventListener("click", () => {
   menuBar.style.display = "none";
   menuBarClose.style.display = "inline-block";
   dataDrop.style.display = "block";
-  document.body.setAttribute("data-scroll-locked", "1");
+  // document.body.setAttribute("data-scroll-locked", "1");
 });
 
 menuBarClose.addEventListener("click", () => {
@@ -43,7 +43,7 @@ menuBarClose.addEventListener("click", () => {
   menuBar.style.display = "inline-block";
   menuBarClose.style.display = "none";
   dataDrop.style.display = "none";
-  document.body.removeAttribute("data-scroll-locked");
+  // document.body.removeAttribute("data-scroll-locked");
 });
 
 // ================================== Next js ===================================================================
