@@ -1,7 +1,6 @@
 // // Define your GitHub Pages subpath here
 
-// const basePath = "/gc-myportfolio.in/";
-const basePath = "/";
+const basePath = "/gc-myportfolio.in/";
 let homeLink = document.querySelectorAll(".home-link");
 let targetLink = document.querySelectorAll(".target-link");
 const menuBar = document.querySelector("#menubar");
