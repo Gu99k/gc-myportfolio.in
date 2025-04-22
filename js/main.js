@@ -1,8 +1,14 @@
 // // Define your GitHub Pages subpath here
 
-const basePath = "/gc-myportfolio.in/";
+// const basePath = "/gc-myportfolio.in/";
+const basePath = "/";
 let homeLink = document.querySelectorAll(".home-link");
 let targetLink = document.querySelectorAll(".target-link");
+const menuBar = document.querySelector("#menubar");
+const menuItem = document.querySelector(".menu-item");
+const dataDrop = document.querySelector("#backdrop");
+const menuBarClose = document.querySelector("#menubar-close");
+
 // Handle click for logo or "home" link
 
 homeLink.forEach((link) => {
@@ -19,16 +25,17 @@ targetLink.forEach((link) => {
     const target = e.currentTarget.dataset.target;
     if (target) {
       window.location.href = `${basePath}#${target}`;
+      document.body.removeAttribute("data-scroll-locked");
+      menuItem.style.right = "-100%";
+      dataDrop.style.display = "none";
+      menuBarClose.style.display = "none";
+      menuBar.style.display = "inline-block";
     }
   });
 });
 
 // ================================== Next js ===================================================================
 //  menubar for short device
-const menuBar = document.querySelector("#menubar");
-const menuItem = document.querySelector(".menu-item");
-const menuBarClose = document.querySelector("#menubar-close");
-const dataDrop = document.querySelector("#backdrop");
 
 menuBar.addEventListener("click", () => {
   menuItem.style.right = "0";
