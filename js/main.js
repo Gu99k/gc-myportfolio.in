@@ -1,5 +1,5 @@
-// const basePath = "/"; // Adjust if hosted under a subpath, e.g., "/gc-myportfolio.in/"
-const basePath = "/gc-myportfolio.in/";
+const basePath = "/"; // Adjust if hosted under a subpath, e.g., "/gc-myportfolio.in/"
+// const basePath = "/gc-myportfolio.in/";
 
 // Select DOM elements
 const homeLinks = document.querySelectorAll(".home-link");
@@ -10,10 +10,10 @@ const menuItem = document.querySelector(".menu-item");
 const backdrop = document.querySelector("#backdrop");
 
 // Debug DOM selections
-// console.log("menuBar:", menuBar);
-// console.log("menuBarClose:", menuBarClose);
-// console.log("menuItem:", menuItem);
-// console.log("backdrop:", backdrop);
+console.log("menuBar:", menuBar);
+console.log("menuBarClose:", menuBarClose);
+console.log("menuItem:", menuItem);
+console.log("backdrop:", backdrop);
 
 // Close menu on resize to desktop size
 function handleResize() {
@@ -53,9 +53,12 @@ homeLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
     closeMenu();
-    // window.location.href = basePath;
-    history.pushState(null, "", basePath);
-    document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
+    if (window.location.pathname.includes("portfolio.html")) {
+      window.location.href = basePath;
+    } else {
+      history.pushState(null, "", basePath);
+      document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
+    }
   });
 });
 
@@ -65,13 +68,17 @@ targetLinks.forEach((link) => {
     e.preventDefault();
     // const target = e.currentTarget.dataset.target;
     const target = link.getAttribute("data-target");
+    
     if (target) {
       const section = document.getElementById(target);
+     
       if (section) {
         history.pushState(null, "", `${basePath}#${target}`);
         section.scrollIntoView({ behavior: "smooth" });
+      } else {
+        console.warn(`Section with ID ${target} not found.`);
+        window.location.href = `${basePath}#${target}`;
       }
-      // window.location.href = `${basePath}#${target}`;
     }
     closeMenu();
   });
