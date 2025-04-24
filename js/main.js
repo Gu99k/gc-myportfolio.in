@@ -1,5 +1,5 @@
-// const basePath = "/"; // Adjust if hosted under a subpath, e.g., "/gc-myportfolio.in/"
-const basePath = "/gc-myportfolio.in/";
+const basePath = "/"; // Adjust if hosted under a subpath, e.g., "/gc-myportfolio.in/"
+// const basePath = "/gc-myportfolio.in/";
 
 // Select DOM elements
 const homeLinks = document.querySelectorAll(".home-link");
@@ -53,7 +53,9 @@ homeLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
     closeMenu();
-    window.location.href = basePath;
+    // window.location.href = basePath;
+    history.pushState(null, "", basePath);
+    document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
   });
 });
 
@@ -63,9 +65,13 @@ targetLinks.forEach((link) => {
     e.preventDefault();
     // const target = e.currentTarget.dataset.target;
     const target = link.getAttribute("data-target");
-    console.log(target);
     if (target) {
-      window.location.href = `${basePath}#${target}`;
+      const section = document.getElementById(target);
+      if (section) {
+        history.pushState(null, "", `${basePath}#${target}`);
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+      // window.location.href = `${basePath}#${target}`;
     }
     closeMenu();
   });
@@ -84,6 +90,12 @@ backdrop.addEventListener("click", () => {
   console.log("Backdrop clicked");
   closeMenu();
 });
+
+// Optional: smooth scrolling support for older browsers
+if (!CSS.supports("scroll-behavior", "smooth")) {
+  // Add polyfill or fallback code
+  console.warn("Smooth scroll not supported by this browser.");
+}
 
 // ================================== Next js ===================================================================
 
