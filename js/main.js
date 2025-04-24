@@ -1,5 +1,5 @@
-const basePath = "/"; // Adjust if hosted under a subpath, e.g., "/gc-myportfolio.in/"
-// const basePath = "/gc-myportfolio.in/";
+// const basePath = "/"; // Adjust if hosted under a subpath, e.g., "/gc-myportfolio.in/"
+const basePath = "/gc-myportfolio.in/";
 
 // Select DOM elements
 const homeLinks = document.querySelectorAll(".home-link");
@@ -68,10 +68,10 @@ targetLinks.forEach((link) => {
     e.preventDefault();
     // const target = e.currentTarget.dataset.target;
     const target = link.getAttribute("data-target");
-    
+
     if (target) {
       const section = document.getElementById(target);
-     
+
       if (section) {
         history.pushState(null, "", `${basePath}#${target}`);
         section.scrollIntoView({ behavior: "smooth" });
