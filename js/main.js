@@ -1,5 +1,5 @@
-const basePath = "/"; // Adjust if hosted under a subpath, e.g., "/gc-myportfolio.in/"
-// const basePath = "/gc-myportfolio.in/";
+// const basePath = "/"; // Adjust if hosted under a subpath, e.g., "/gc-myportfolio.in/"
+const basePath = "/gc-myportfolio.in/";
 
 // Select DOM elements
 const homeLinks = document.querySelectorAll(".home-link");
@@ -10,10 +10,10 @@ const menuItem = document.querySelector(".menu-item");
 const backdrop = document.querySelector("#backdrop");
 
 // Debug DOM selections
-console.log("menuBar:", menuBar);
-console.log("menuBarClose:", menuBarClose);
-console.log("menuItem:", menuItem);
-console.log("backdrop:", backdrop);
+// console.log("menuBar:", menuBar);
+// console.log("menuBarClose:", menuBarClose);
+// console.log("menuItem:", menuItem);
+// console.log("backdrop:", backdrop);
 
 // Close menu on resize to desktop size
 function handleResize() {
@@ -78,18 +78,9 @@ targetLinks.forEach((link) => {
 });
 
 // Menubar toggle for mobile devices
-menuBar.addEventListener("click", () => {
-  console.log("Menu bar clicked");
-  openMenu();
-});
-menuBarClose.addEventListener("click", () => {
-  console.log("Menu close clicked");
-  closeMenu();
-});
-backdrop.addEventListener("click", () => {
-  console.log("Backdrop clicked");
-  closeMenu();
-});
+menuBar.addEventListener("click", openMenu);
+menuBarClose.addEventListener("click", closeMenu);
+backdrop.addEventListener("click", closeMenu);
 
 // Optional: smooth scrolling support for older browsers
 if (!CSS.supports("scroll-behavior", "smooth")) {
