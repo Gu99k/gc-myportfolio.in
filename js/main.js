@@ -1,55 +1,88 @@
-// // Define your GitHub Pages subpath here
-
+// const basePath = "/"; // Adjust if hosted under a subpath, e.g., "/gc-myportfolio.in/"
 const basePath = "/gc-myportfolio.in/";
-let homeLink = document.querySelectorAll(".home-link");
-let targetLink = document.querySelectorAll(".target-link");
+
+// Select DOM elements
+const homeLinks = document.querySelectorAll(".home-link");
+const targetLinks = document.querySelectorAll(".target-link");
 const menuBar = document.querySelector("#menubar");
-const menuItem = document.querySelector(".menu-item");
-const dataDrop = document.querySelector("#backdrop");
 const menuBarClose = document.querySelector("#menubar-close");
+const menuItem = document.querySelector(".menu-item");
+const backdrop = document.querySelector("#backdrop");
+
+// Debug DOM selections
+console.log("menuBar:", menuBar);
+console.log("menuBarClose:", menuBarClose);
+console.log("menuItem:", menuItem);
+console.log("backdrop:", backdrop);
+
+// Close menu on resize to desktop size
+function handleResize() {
+  if (window.innerWidth > 815) {
+    closeMenu();
+    // Optionally hide menubar manually (though CSS should handle it)
+    menuBar.style.display = "none";
+  } else {
+    menuBar.style.display = "block";
+  }
+}
+window.addEventListener("resize", handleResize);
+
+// Function to open the menu
+function openMenu() {
+  if (window.innerWidth <= 815) {
+    menuItem.style.right = "0";
+    menuBar.style.display = "none";
+    menuBarClose.style.display = "block";
+    backdrop.style.display = "block";
+    document.documentElement.classList.add("menu-open");
+  }
+}
+
+// Function to close the menu
+
+function closeMenu() {
+  menuItem.style.right = "-100%";
+  menuBar.style.display = "block";
+  menuBarClose.style.display = "none";
+  backdrop.style.display = "none";
+  document.documentElement.classList.remove("menu-open");
+}
 
 // Handle click for logo or "home" link
-
-homeLink.forEach((link) => {
+homeLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
+    closeMenu();
     window.location.href = basePath;
   });
 });
+
 // Handle navigation for section links
-targetLink.forEach((link) => {
+targetLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
-
-    const target = e.currentTarget.dataset.target;
+    // const target = e.currentTarget.dataset.target;
+    const target = link.getAttribute("data-target");
+    console.log(target);
     if (target) {
       window.location.href = `${basePath}#${target}`;
-      document.body.removeAttribute("data-scroll-locked");
-      menuItem.style.right = "-100%";
-      dataDrop.style.display = "none";
-      menuBarClose.style.display = "none";
-      menuBar.style.display = "inline-block";
     }
+    closeMenu();
   });
 });
 
-// ================================== Next js ===================================================================
-//  menubar for short device
-
+// Menubar toggle for mobile devices
 menuBar.addEventListener("click", () => {
-  menuItem.style.right = "0";
-  menuBar.style.display = "none";
-  menuBarClose.style.display = "inline-block";
-  dataDrop.style.display = "block";
-  document.body.setAttribute("data-scroll-locked", "1");
+  console.log("Menu bar clicked");
+  openMenu();
 });
-
 menuBarClose.addEventListener("click", () => {
-  menuItem.style.right = "-100%";
-  menuBar.style.display = "inline-block";
-  menuBarClose.style.display = "none";
-  dataDrop.style.display = "none";
-  document.body.removeAttribute("data-scroll-locked");
+  console.log("Menu close clicked");
+  closeMenu();
+});
+backdrop.addEventListener("click", () => {
+  console.log("Backdrop clicked");
+  closeMenu();
 });
 
 // ================================== Next js ===================================================================

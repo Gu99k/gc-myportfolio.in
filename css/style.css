@@ -204,10 +204,11 @@ html.sr .title1 .description {
   z-index: 999;
   display: none;
 }
-/* Scroll lock: prevent background from scrolling */
 
-body[data-scroll-locked="1"] {
+/* This only locks scroll for backdrop/menu */
+.menu-open {
   overflow: hidden;
+  touch-action: none;
 }
 
 .menu-item {
@@ -218,7 +219,6 @@ body[data-scroll-locked="1"] {
   width: 75%;
   height: 100%;
   border-radius: 5px;
-  transition: height 4s ease;
   background-color: white;
   z-index: 1000;
   transition: right 0.5s ease-in-out;
@@ -1296,13 +1296,20 @@ body[data-scroll-locked="1"] {
     width: 90%;
   }
 }
-
+@media (min-width: 816px) {
+  #menubar {
+    display: none !important;
+  }
+  #menubar-close {
+    display: none !important;
+  }
+}
 @media only screen and (max-width: 815px) {
   .nav-links {
     display: none;
   }
   #menubar {
-    display: inline-block;
+    display: block;
   }
 
   .image {
