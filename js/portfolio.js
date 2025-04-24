@@ -27,3 +27,14 @@ hoverSections.forEach((hoverSection, index) => {
     }
   });
 });
+
+// ================================== scrollReveal javascript library---------------------------------------
+ScrollReveal({
+  reset: true,
+  distance: "90px",
+  duration: 2500,
+  delay: 400,
+});
+
+ScrollReveal().reveal(".block-1", { delay: 300, origin: "left" });
+ScrollReveal().reveal(".block-2", { delay: 300, origin: "right" });
